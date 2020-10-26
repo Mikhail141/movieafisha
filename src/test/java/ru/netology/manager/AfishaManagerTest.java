@@ -20,7 +20,7 @@ public class AfishaManagerTest {
 
 
     @Test
-    public void shouldAddFilm(){
+    public void add(AfishaItem item){
             manager.add(f);
             AfishaItem[] expected = new AfishaItem[]{f};
             AfishaItem[] actual = manager.getAll();
