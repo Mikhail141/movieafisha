@@ -5,7 +5,7 @@ import ru.netology.domain.AfishaItem;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AfishaManagerTest {
-    private AfishaItem[]films = new AfishaItem[0];
+    private AfishaItem[]films = new AfishaItem[1];
     @Test
     public void shouldAddFilm(){
         AfishaManager manager = new AfishaManager();
