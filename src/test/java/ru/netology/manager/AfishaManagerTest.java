@@ -31,11 +31,11 @@ public class AfishaManagerTest {
         manager.add(n);
         manager.add(t);
 
-        manager.add(f);
+
 
 
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[] {f};
+        AfishaItem[] expected = new AfishaItem[] {f,s,th,fo,fi,si,se,et,n,t};
         assertArrayEquals(expected,actual);
 
 
