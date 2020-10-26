@@ -2,6 +2,7 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.AfishaItem;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AfishaManagerTest {
     @Test
@@ -13,6 +14,7 @@ public class AfishaManagerTest {
 
         AfishaItem[] actual = manager.getAll();
         AfishaItem[] expected = new AfishaItem[] {first};
+        assertArrayEquals(expected,actual);
 
 
     }

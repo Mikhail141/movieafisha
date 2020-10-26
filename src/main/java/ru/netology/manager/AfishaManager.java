@@ -3,6 +3,16 @@ package ru.netology.manager;
 import ru.netology.domain.AfishaItem;
 
 public class AfishaManager {
+    private int film1 ;
+    private int film2 ;
+    private int film3 ;
+    private int film4 ;
+    private int film5 ;
+    private int film6 ;
+    private int film7 ;
+    private int film8 ;
+    private int film9 ;
+    private int film10 ;
     private AfishaItem[] items = new AfishaItem[0];
     
     public void add(AfishaItem item) {
