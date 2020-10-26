@@ -2,10 +2,10 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.AfishaItem;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AfishaManagerTest {
-
     AfishaManager manager = new AfishaManager();
     AfishaItem f = new AfishaItem(1, 1, "f", 1, 1);
     AfishaItem s = new AfishaItem(2, 2, "s", 1, 1);
@@ -18,14 +18,11 @@ public class AfishaManagerTest {
     AfishaItem n = new AfishaItem(9, 9, "n", 1, 1);
     AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
 
-
     @Test
-    public void add(AfishaItem item){
-            manager.add(f);
-            AfishaItem[] expected = new AfishaItem[]{f};
-            AfishaItem[] actual = manager.getAll();
-            assertArrayEquals(expected, actual);
-        }
-
+    public void shouldAddFilm() {
+        manager.add(f);
+        AfishaItem[] expected = new AfishaItem[]{f};
+        AfishaItem[] actual = manager.getAll();
+        assertArrayEquals(expected, actual);
     }
-
+}
