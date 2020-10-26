@@ -2,6 +2,7 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.AfishaItem;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AfishaManagerTest {
@@ -18,7 +19,7 @@ public class AfishaManagerTest {
     AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
 
     @Test
-    public void add(AfishaItem item) {
+    public void shouldAddFilm() {
         manager.add(f);
         AfishaItem[] expected = new AfishaItem[]{f};
         AfishaItem[] actual = manager.getAll();
