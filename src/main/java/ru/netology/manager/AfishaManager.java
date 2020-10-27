@@ -5,7 +5,7 @@ import ru.netology.domain.AfishaItem;
 public class AfishaManager {
 
     private AfishaItem[] items = new AfishaItem[0];
-    private int filmsOfManager = 10;
+    private int filmsOfManager;
 
     public int getFilmsOfManager() {
         return filmsOfManager;
@@ -43,16 +43,14 @@ public class AfishaManager {
 
     }
 
-    public AfishaItem[] getAmountFilms() {
-        AfishaItem [] result = new AfishaItem[getFilmsOfManager()];
+    public AfishaItem[] getAmountOfFilms() {
+        AfishaItem[] result = new AfishaItem[getFilmsOfManager()];
         AfishaItem[] tmp = getAll();
-        System.arraycopy(tmp, 0, result, 0, filmsOfManager);
-
-
-        if (filmsOfManager > 10){
+        if (filmsOfManager < filmsOfManager) {
             this.filmsOfManager = filmsOfManager;
-
         }
+
+        System.arraycopy(tmp, 0, result, 0, filmsOfManager);
 
         return result;
     }
