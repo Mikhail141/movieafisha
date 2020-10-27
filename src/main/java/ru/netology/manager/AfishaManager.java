@@ -5,6 +5,15 @@ import ru.netology.domain.AfishaItem;
 public class AfishaManager {
 
     private AfishaItem[] items = new AfishaItem[0];
+    private int filmsOfManager = 10;
+
+    public int getFilmsOfManager() {
+        return filmsOfManager;
+    }
+
+    public void setFilmsOfManager(int filmsOfManager) {
+        this.filmsOfManager = filmsOfManager;
+    }
 
     public void add(AfishaItem item) {
         // создаём новый массив размером на единицу больше
@@ -22,14 +31,29 @@ public class AfishaManager {
         items = tmp;
     }
 
-    public AfishaItem[]getAll() {
+    public AfishaItem[] getAll() {
         AfishaItem[] result = new AfishaItem[items.length];
+        // перебираем массив в прямом порядке
+        // но кладём в результаты в обратном
         for (int i = 0; i < result.length; i++) {
-           int index = items.length - i -1;
-           result[i] = items[index];
-
+            int index = items.length - i - 1;
+            result[i] = items[index];
         }
         return result;
+
     }
-    
+
+    public AfishaItem[] getAmountFilms() {
+        AfishaItem [] result = new AfishaItem[getFilmsOfManager()];
+        AfishaItem[] tmp = getAll();
+        System.arraycopy(tmp, 0, result, 0, filmsOfManager);
+
+
+        if (filmsOfManager > 10){
+            this.filmsOfManager = filmsOfManager;
+
+        }
+
+        return result;
+    }
 }

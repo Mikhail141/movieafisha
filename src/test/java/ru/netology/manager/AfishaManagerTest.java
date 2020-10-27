@@ -1,11 +1,13 @@
 package ru.netology.manager;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.AfishaItem;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AfishaManagerTest {
+
     AfishaManager manager = new AfishaManager();
     AfishaItem f = new AfishaItem(1, 1, "f", 1, 1);
     AfishaItem s = new AfishaItem(2, 2, "s", 1, 1);
@@ -18,11 +20,62 @@ public class AfishaManagerTest {
     AfishaItem n = new AfishaItem(9, 9, "n", 1, 1);
     AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
 
+
+
+
+
     @Test
     public void shouldAddFilm() {
         manager.add(f);
         AfishaItem[] expected = new AfishaItem[]{f};
         AfishaItem[] actual = manager.getAll();
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void getAlls() {
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+
+
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{t, n, et, se, si, fi, fo, th, s, f};
+        assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    void getFilmsOfManager() {
+        manager.setFilmsOfManager(10);
+        assertEquals(10,manager.getFilmsOfManager());
+    }
+
+    @Test
+    void getAmountFilms() {
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+        manager.add(x);
+
+
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{t, n, et, se, si, fi, fo, th, s, f};
+        assertArrayEquals(expected, actual);
+
     }
 }
