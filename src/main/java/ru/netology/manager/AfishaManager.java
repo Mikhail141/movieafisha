@@ -8,7 +8,7 @@ public class AfishaManager {
     private int filmsOfManager;
 
     public int getFilmsOfManager() {
-        return filmsOfManager;
+        return filmsOfManager = 10;
     }
 
     public void setFilmsOfManager(int filmsOfManager) {

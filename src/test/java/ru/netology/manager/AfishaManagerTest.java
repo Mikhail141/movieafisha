@@ -61,7 +61,7 @@ public class AfishaManagerTest {
     void getAmountOfFilms() {
 
 
-        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] actual = manager.getAmountOfFilms();
         AfishaItem[] expected = new AfishaItem[]{ si, fi, fo, th, s,};
         assertArrayEquals(expected, actual);
 
