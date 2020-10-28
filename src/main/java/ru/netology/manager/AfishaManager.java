@@ -46,6 +46,7 @@ public class AfishaManager {
     public AfishaItem[] getAmountOfFilms() {
         AfishaItem[] result = new AfishaItem[getFilmsOfManager()];
         AfishaItem[] tmp = getAll();
+        int filmsOfManager = 10;
         if (filmsOfManager < filmsOfManager) {
             this.filmsOfManager = filmsOfManager;
 
