@@ -60,51 +60,26 @@ public class AfishaManagerTest {
 
 
     @Test
-    void testGetAmountOfFilms() {
+    void getAll() {
         AfishaManager manager = new AfishaManager();
         AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
         manager.add(se);
         manager.add(et);
         manager.add(n);
         manager.add(t);
         manager.add(x);
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{ x, t, n, et, se};
-        assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    void testGetAmountOfFilm() {
-        AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
-        manager.add(x);
-        AfishaItem[] actual = manager.getAmountOfFilms();
         AfishaItem[] expected = new AfishaItem[]{ x, t, n, et, se, si, fi, fo, th, s};
         assertArrayEquals(expected, actual);
 
     }
-
-    @Test
-    void getAmountOfFilms() {
-        AfishaManager manager = new AfishaManager();
-        AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
-        AfishaItem el = new AfishaItem(12, 12, "x", 1, 1);
-        AfishaItem tw = new AfishaItem(13, 13, "x", 1, 1);
-        AfishaItem thr = new AfishaItem(14, 14, "x", 1, 1);
-        AfishaItem forth = new AfishaItem(15, 15, "x", 1, 1);
-
-        int filmsOfManager =10;
-        manager.add(x);
-        manager.add(el);
-        manager.add(tw);
-        manager.add(thr);
-        manager.add(forth);
-        AfishaItem[] actual = manager.getFilmsOfManager(filmsOfManager);
-        AfishaItem[] expected = new AfishaItem[]{forth, thr,tw,el,x};
-        assertArrayEquals(expected, actual);
-
-
-
-    }
 }
+
+
 

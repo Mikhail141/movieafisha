@@ -6,6 +6,8 @@ public class AfishaManager {
 
     private AfishaItem[] items = new AfishaItem[0];
     private int filmsOfManager = 10;
+    private int custom;
+
 
     public int getFilmsOfManager() {
         return filmsOfManager;
@@ -33,28 +35,24 @@ public class AfishaManager {
 
     public AfishaItem[] getAll() {
         AfishaItem[] result = new AfishaItem[items.length];
-        // перебираем массив в прямом порядке
-        // но кладём в результаты в обратном
+        int temp = items.length;
+        if (custom <= 0) {
+            if (filmsOfManager < items.length) {
+                temp = filmsOfManager;
+
+            }
+        } else {
+            if (custom < items.length) {
+                temp = custom;
+
+            }
+        }
+
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
         return result;
-
     }
-
-    public AfishaItem[] getAmountOfFilms() {
-        AfishaItem[] result = new AfishaItem[getFilmsOfManager()];
-        AfishaItem[] tmp = getAll();
-        int filmsOfManager = 10;
-        if (filmsOfManager < filmsOfManager) {
-            this.filmsOfManager = filmsOfManager;
-
-        }
-
-        System.arraycopy(tmp, 0, result, 0, filmsOfManager);
-        return result;
-    }
-
-    }
+}
 
