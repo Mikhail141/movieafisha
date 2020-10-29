@@ -24,7 +24,7 @@ public class AfishaManagerTest {
     AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         manager.add(f);
         manager.add(s);
         manager.add(th);
@@ -71,7 +71,7 @@ public class AfishaManagerTest {
     @Test
     void getFilmsOfManager() {
         manager.setFilmsOfManager(10);
-        assertEquals(10,manager.getFilmsOfManager());
+        assertEquals(10, manager.getFilmsOfManager());
     }
 
 
@@ -107,9 +107,41 @@ public class AfishaManagerTest {
         manager.add(se);
 
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{ se, si, fi, fo, th};
+        AfishaItem[] expected = new AfishaItem[]{se, si, fi, fo, th};
         assertArrayEquals(expected, actual);
 
+    }
+
+    @Test
+    void shoudlcheckFieldsDefault() {
+
+        int filmsOfManager = 10;
+        int custom;
+
+        assertEquals(10,manager.getFilmsOfManager());
+        assertEquals(0,0);
+    }
+
+
+    @Test
+
+    void shoudlcheckFields() {
+        manager.setCustom(10);
+        assertEquals(10,manager.getCustom());
+    }
+
+    @Test
+
+    void shoudlcheckFieldsLess() {
+    manager.setCustom(5);
+    assertEquals(5,manager.getCustom());
+    }
+
+    @Test
+
+    void shoudlcheckFieldsMore() {
+        manager.setCustom(12);
+        assertEquals(10,manager.getFilmsOfManager());
     }
 }
 

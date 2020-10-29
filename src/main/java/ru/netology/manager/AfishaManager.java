@@ -1,6 +1,12 @@
 package ru.netology.manager;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import ru.netology.domain.AfishaItem;
+
+@NoArgsConstructor
+@AllArgsConstructor
+
 
 public class AfishaManager {
 
@@ -8,6 +14,13 @@ public class AfishaManager {
     private int filmsOfManager = 10;
     private int custom;
 
+    public int getCustom() {
+        return custom;
+    }
+
+    public void setCustom(int custom) {
+        this.custom = custom;
+    }
 
     public int getFilmsOfManager() {
         return filmsOfManager;
@@ -54,5 +67,7 @@ public class AfishaManager {
         }
         return result;
     }
+
+
 }
 
