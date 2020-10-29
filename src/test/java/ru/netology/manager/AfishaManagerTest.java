@@ -20,6 +20,9 @@ public class AfishaManagerTest {
     AfishaItem n = new AfishaItem(9, 9, "n", 1, 1);
     AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
 
+    AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
+    AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
+
     @BeforeEach
     public void setUp(){
         manager.add(f);
@@ -32,6 +35,8 @@ public class AfishaManagerTest {
         manager.add(et);
         manager.add(n);
         manager.add(t);
+        manager.add(x);
+        manager.add(tw);
     }
 
 
@@ -46,6 +51,17 @@ public class AfishaManagerTest {
 
     @Test
     public void getAlls() {
+        AfishaManager manager = new AfishaManager();
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
         AfishaItem[] actual = manager.getAll();
         AfishaItem[] expected = new AfishaItem[]{t, n, et, se, si, fi, fo, th, s, f};
         assertArrayEquals(expected, actual);
@@ -60,11 +76,9 @@ public class AfishaManagerTest {
 
 
     @Test
-    void getAll() {
+    void getAllfilms() {
         AfishaManager manager = new AfishaManager();
-        AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
-        manager.add(f);
-        manager.add(s);
+
         manager.add(th);
         manager.add(fo);
         manager.add(fi);
@@ -74,8 +88,26 @@ public class AfishaManagerTest {
         manager.add(n);
         manager.add(t);
         manager.add(x);
+        manager.add(tw);
+
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{ x, t, n, et, se, si, fi, fo, th, s};
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    void getAll() {
+        AfishaManager manager = new AfishaManager();
+
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{ se, si, fi, fo, th};
         assertArrayEquals(expected, actual);
 
     }
