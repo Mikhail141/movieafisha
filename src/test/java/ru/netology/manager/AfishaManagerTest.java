@@ -143,6 +143,9 @@ public class AfishaManagerTest {
         manager.setCustom(12);
         assertEquals(10,manager.getFilmsOfManager());
     }
+
+
+
 }
 
 
