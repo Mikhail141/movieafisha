@@ -1,10 +1,11 @@
 package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import ru.netology.domain.AfishaItem;
 
-
+@Data
 @AllArgsConstructor
 
 
@@ -15,21 +16,13 @@ public class AfishaManager {
     private int custom;
 
 
-    public int getCustom() {
-        return custom;
+    public AfishaManager() {
     }
 
-    public void setCustom(int custom) {
+    public AfishaManager(int custom) {
         this.custom = custom;
     }
 
-    public int getFilmsOfManager() {
-        return filmsOfManager;
-    }
-
-    public void setFilmsOfManager(int filmsOfManager) {
-        this.filmsOfManager = filmsOfManager;
-    }
 
     public void add(AfishaItem item) {
         // создаём новый массив размером на единицу больше
@@ -67,17 +60,10 @@ public class AfishaManager {
     }
 
 
-    public AfishaManager() {
-    }
-
-
-
-    public AfishaManager(int custom) {
-        this.custom = custom;
-    }
-
-
-
-
 }
+
+
+
+
+
 

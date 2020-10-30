@@ -24,7 +24,6 @@ public class AfishaManagerTest {
     AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
 
 
-
     @Test
     public void shouldAddFilm() {
         AfishaManager manager = new AfishaManager();
@@ -104,52 +103,28 @@ public class AfishaManagerTest {
         int filmsOfManager = 10;
         int custom;
 
-        assertEquals(10,manager.getFilmsOfManager());
-        assertEquals(0,0);
+        assertEquals(10, manager.getFilmsOfManager());
+        assertEquals(0, 0);
     }
 
 
     @Test
-
     void shoudlcheckFields() {
         manager.setCustom(10);
-        assertEquals(10,manager.getCustom());
+        assertEquals(10, manager.getCustom());
     }
 
     @Test
-
     void shoudlcheckFieldsLess() {
-    manager.setCustom(5);
-    assertEquals(5,manager.getCustom());
+        manager.setCustom(5);
+        assertEquals(5, manager.getCustom());
     }
 
     @Test
-
     void shoudlcheckFieldsMore() {
         manager.setCustom(12);
-        assertEquals(10,manager.getFilmsOfManager());
+        assertEquals(10, manager.getFilmsOfManager());
     }
-
-
-
-    @Test
-    public void shouldUseCustom() {
-        manager = new AfishaManager(5);
-        manager.add(f);
-        manager.add(s);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-        manager.add(x);
-        manager.add(tw);
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et};
-}
 
     @Test
     public void shouldUseCustomMore() {
@@ -167,12 +142,32 @@ public class AfishaManagerTest {
         manager.add(x);
         manager.add(tw);
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et,se, si,fi,fo,th};
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
     }
 
     @Test
     public void shouldFilmsOfManager() {
 
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+        manager.add(x);
+        manager.add(tw);
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
+    }
+
+    @Test
+    void GetAllLess() {
+
+            manager = new AfishaManager(5);
             manager.add(f);
             manager.add(s);
             manager.add(th);
@@ -186,8 +181,10 @@ public class AfishaManagerTest {
             manager.add(x);
             manager.add(tw);
             AfishaItem[] actual = manager.getAll();
-            AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et,se, si,fi,fo,th};
-        }}
+            AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et};
+        }
+    }
+
 
 
 
