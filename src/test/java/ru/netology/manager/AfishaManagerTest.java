@@ -23,21 +23,6 @@ public class AfishaManagerTest {
     AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
     AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
 
-    @BeforeEach
-    public void setUp() {
-        manager.add(f);
-        manager.add(s);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-        manager.add(x);
-        manager.add(tw);
-    }
 
 
     @Test
@@ -70,6 +55,7 @@ public class AfishaManagerTest {
 
     @Test
     void getFilmsOfManager() {
+
         manager.setFilmsOfManager(10);
         assertEquals(10, manager.getFilmsOfManager());
     }
@@ -146,7 +132,64 @@ public class AfishaManagerTest {
 
 
 
+    @Test
+    public void shouldUseCustom() {
+        manager = new AfishaManager(5);
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+        manager.add(x);
+        manager.add(tw);
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et};
 }
+
+    @Test
+    public void shouldUseCustomMore() {
+        manager = new AfishaManager(12);
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+        manager.add(x);
+        manager.add(tw);
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et,se, si,fi,fo,th};
+    }
+
+    @Test
+    public void shouldFilmsOfManager() {
+
+            manager.add(f);
+            manager.add(s);
+            manager.add(th);
+            manager.add(fo);
+            manager.add(fi);
+            manager.add(si);
+            manager.add(se);
+            manager.add(et);
+            manager.add(n);
+            manager.add(t);
+            manager.add(x);
+            manager.add(tw);
+            AfishaItem[] actual = manager.getAll();
+            AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et,se, si,fi,fo,th};
+        }}
+
+
 
 
 

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import ru.netology.domain.AfishaItem;
 
-@NoArgsConstructor
+
 @AllArgsConstructor
 
 
@@ -13,6 +13,7 @@ public class AfishaManager {
     private AfishaItem[] items = new AfishaItem[0];
     private int filmsOfManager = 10;
     private int custom;
+
 
     public int getCustom() {
         return custom;
@@ -47,25 +48,36 @@ public class AfishaManager {
     }
 
     public AfishaItem[] getAll() {
-        AfishaItem[] result = new AfishaItem[items.length];
         int temp = items.length;
         if (custom <= 0) {
-            if (filmsOfManager < items.length) {
+            if (filmsOfManager < temp) {
                 temp = filmsOfManager;
-
             }
         } else {
-            if (custom < items.length) {
+            if (custom < temp) {
                 temp = custom;
-
             }
         }
-
+        AfishaItem[] result = new AfishaItem[temp];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
         return result;
     }
+
+
+    public AfishaManager() {
+    }
+
+
+
+    public AfishaManager(int custom) {
+        this.custom = custom;
+    }
+
+
+
+
 }
 
