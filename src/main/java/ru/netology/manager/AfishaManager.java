@@ -10,7 +10,7 @@ public class AfishaManager {
 
     private AfishaItem[] items = new AfishaItem[0];
 
-    private int custom = 10;
+    private int custom ;
 
 
     public AfishaManager() {
@@ -31,21 +31,24 @@ public class AfishaManager {
     }
 
     public AfishaItem[] getAll() {
-        int length = items.length;
+
+
+        int length = custom;
+        if (length > items.length) {
+            length = items.length;
+        }
         if (custom <= 0) {
-            if (custom < length) {
-                length = custom;
-            }
+            length = items.length;
         }
         AfishaItem[] result = new AfishaItem[length];
-        for (int i = 0; i < result.length; i++) {
+        for (int i = 0; i < length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
         return result;
-    }
 
     }
+}
 
 
 

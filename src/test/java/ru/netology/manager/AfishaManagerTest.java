@@ -37,7 +37,7 @@ public class AfishaManagerTest {
 
     @Test
     void getAll() {
-        manager = new AfishaManager(12);
+
         manager.add(f);
         manager.add(s);
         manager.add(th);
@@ -51,6 +51,41 @@ public class AfishaManagerTest {
         AfishaItem[] actual = manager.getAll();
         AfishaItem[] expected = new AfishaItem[]{t,n,et,se,si,fi,fo,th,s,f};
         assertArrayEquals(expected, actual);
+}
+
+
+
+    @Test
+    public void getAllLess() {
+        AfishaManager manager = new AfishaManager(10);
+        manager.add(f);
+        manager.add(s);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{fi,fo,th, s, f};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void getAllMore() {
+        manager = new AfishaManager(12);
+        manager.add(th);
+        manager.add(fo);
+        manager.add(fi);
+        manager.add(si);
+        manager.add(se);
+        manager.add(et);
+        manager.add(n);
+        manager.add(t);
+        manager.add(x);
+        manager.add(tw);
+        AfishaItem[] actual = manager.getAll();
+        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
+        assertArrayEquals(expected, actual);
+
+}
 }
 
 
