@@ -23,73 +23,21 @@ public class AfishaManagerTest {
     AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
 
 
-    @BeforeEach
-    public void setUp (){
-        AfishaManager manager = new AfishaManager();
-        manager.add(f);
-        manager.add(s);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-        manager.add(x);
-        manager.add(tw);
-    }
+
+
+
     @Test
-    public void shouldAddFilm() {
-        manager = new AfishaManager(1);
+    void addFilm() {
         manager.add(f);
+        AfishaItem[] actual = manager.getAll();
         AfishaItem[] expected = new AfishaItem[]{f};
-        AfishaItem[] actual = manager.getAll();
         assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void getAlls() {
-        manager = new AfishaManager(10);
-        manager.add(f);
-        manager.add(s);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{t, n, et, se, si, fi, fo, th, s, f};
-        assertArrayEquals(expected, actual);
-    }
 
     @Test
-    void shoudlcheckFields() {
-        manager.setCustom(10);
-        assertEquals(10, manager.getCustom());
-    }
-
-    @Test
-    public void shouldUseCustomMore() {
+    void getAll() {
         manager = new AfishaManager(12);
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
-    }
-
-    @Test
-    public void shouldUseCustomLess() {
-            manager = new AfishaManager(5);
-            AfishaItem[] actual = manager.getAll();
-            AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et};
-        }
-
-    @Test
-    public void shouldUseCustom() {
-        AfishaManager manager = new AfishaManager();
         manager.add(f);
         manager.add(s);
         manager.add(th);
@@ -101,10 +49,12 @@ public class AfishaManagerTest {
         manager.add(n);
         manager.add(t);
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{t, n, et, se, si, fi, fo, th, s, f};
+        AfishaItem[] expected = new AfishaItem[]{t,n,et,se,si,fi,fo,th,s,f};
         assertArrayEquals(expected, actual);
-    }
-    }
+}
+
+
+
 
 
 
