@@ -21,6 +21,7 @@ public class AfishaRepositoryTest {
 
     @BeforeEach
     public void setUp() {
+
         repository.save(f);
         repository.save(s);
         repository.save(th);
@@ -52,28 +53,17 @@ public class AfishaRepositoryTest {
 
     @Test
     void shouldRemoveById() {
-        AfishaRepository repository = new AfishaRepository();
-        int idToRemove = 2;
-        repository.save(f);
-        repository.save(s);
-        repository.save(th);
-        repository.save(fo);
-
+        int idToRemove = 7;
         repository.removeById(idToRemove);
         AfishaItem[]actual = repository.findAll();
-        AfishaItem[] expected = new AfishaItem[]{f,th,fo};
+        AfishaItem[] expected = new AfishaItem[]{f,s,th,fo,fi,si,et,n,t};
         assertArrayEquals(expected, actual);
 
 
 }
     @Test
     void shouldFindById() {
-        AfishaRepository repository = new AfishaRepository();
         int idToFind = 3;
-        repository.save(f);
-        repository.save(s);
-        repository.save(th);
-
         repository.findById(idToFind);
         AfishaItem actual = repository.findById(idToFind);
         AfishaItem expected = th;
@@ -83,11 +73,7 @@ public class AfishaRepositoryTest {
 }
     @Test
     void shouldFindByIdIfIdDoesNotExist() {
-        AfishaRepository repository = new AfishaRepository();
-        int idToFind = 4;
-        repository.save(f);
-        repository.save(s);
-        repository.save(th);
+        int idToFind = 12;
         repository.findById(idToFind);
         AfishaItem actual = repository.findById(idToFind);
         AfishaItem expected = null;
@@ -97,18 +83,6 @@ public class AfishaRepositoryTest {
 
     @Test
     void shouldRemoveAll() {
-        AfishaRepository repository = new AfishaRepository();
-        repository.save(f);
-        repository.save(s);
-        repository.save(th);
-        repository.save(fo);
-        repository.save(fi);
-        repository.save(si);
-        repository.save(se);
-        repository.save(et);
-        repository.save(n);
-        repository.save(t);
-
         repository.removeAll();
         AfishaItem[] actual = repository.findAll();
         AfishaItem[] expected = {};
