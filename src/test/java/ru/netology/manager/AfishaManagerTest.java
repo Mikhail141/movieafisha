@@ -2,92 +2,74 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import ru.netology.domain.AfishaItem;
+import ru.netology.repository.AfishaRepository;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.mockito.Mockito.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+@ExtendWith(MockitoExtension.class)
+
 
 public class AfishaManagerTest {
-    AfishaManager manager = new AfishaManager();
+    @Mock
+    private AfishaRepository repository;
+    @InjectMocks
+    private AfishaManager manager;
+    private AfishaItem f = new AfishaItem(1, 1, "f", 1, 1);
+    private AfishaItem s = new AfishaItem(2, 2, "s", 1, 1);
+    private AfishaItem th = new AfishaItem(3, 3, "th", 1, 1);
+    private AfishaItem fo = new AfishaItem(4, 4, "fo", 1, 1);
+    private AfishaItem fi = new AfishaItem(5, 5, "fi", 1, 1);
+    private AfishaItem si = new AfishaItem(6, 6, "si", 1, 1);
+    private AfishaItem se = new AfishaItem(7, 7, "se", 1, 1);
+    private AfishaItem et = new AfishaItem(8, 8, "et", 1, 1);
+    private AfishaItem n = new AfishaItem(9, 9, "n", 1, 1);
+    private AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
 
-    AfishaItem f = new AfishaItem(1, 1, "f", 1, 1);
-    AfishaItem s = new AfishaItem(2, 2, "s", 1, 1);
-    AfishaItem th = new AfishaItem(3, 3, "th", 1, 1);
-    AfishaItem fo = new AfishaItem(4, 4, "fo", 1, 1);
-    AfishaItem fi = new AfishaItem(5, 5, "fi", 1, 1);
-    AfishaItem si = new AfishaItem(6, 6, "si", 1, 1);
-    AfishaItem se = new AfishaItem(7, 7, "se", 1, 1);
-    AfishaItem et = new AfishaItem(8, 8, "et", 1, 1);
-    AfishaItem n = new AfishaItem(9, 9, "n", 1, 1);
-    AfishaItem t = new AfishaItem(10, 10, "t", 1, 1);
-    AfishaItem x = new AfishaItem(11, 11, "x", 1, 1);
-    AfishaItem tw = new AfishaItem(12, 12, "tw", 1, 1);
-
-
-
-
-
-    @Test
-    void addFilm() {
-        manager.add(f);
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{f};
-        assertArrayEquals(expected, actual);
-    }
-
-
-    @Test
-    void getAll() {
-
+    @BeforeEach
+    public void setUp() {
         manager.add(f);
         manager.add(s);
         manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{t,n,et,se,si,fi,fo,th,s,f};
-        assertArrayEquals(expected, actual);
-}
 
-
-
-    @Test
-    public void getAllLess() {
-        AfishaManager manager = new AfishaManager(10);
-        manager.add(f);
-        manager.add(s);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{fi,fo,th, s, f};
-        assertArrayEquals(expected, actual);
     }
 
     @Test
-    void getAllMore() {
-        manager = new AfishaManager(12);
-        manager.add(th);
-        manager.add(fo);
-        manager.add(fi);
-        manager.add(si);
-        manager.add(se);
-        manager.add(et);
-        manager.add(n);
-        manager.add(t);
-        manager.add(x);
-        manager.add(tw);
+    public void shouldRemoveIfExists() {
+        int idToRemove = 1;
+        AfishaItem[] returned = new AfishaItem[]{s, th};
+        doReturn(returned).when(repository).findAll();
+        doNothing().when(repository).removeById(idToRemove);
+
+        manager.removeById(idToRemove);
+        AfishaItem[] expected = new AfishaItem[]{th, s};
         AfishaItem[] actual = manager.getAll();
-        AfishaItem[] expected = new AfishaItem[]{tw, x, t, n, et, se, si, fi, fo, th};
         assertArrayEquals(expected, actual);
 
-}
-}
 
+        verify(repository).removeById(idToRemove);
+    }
+
+    @Test
+    public void shouldNotRemoveIfNotExists() {
+        int idToRemove = 4;
+        AfishaItem[] returned = new AfishaItem[]{f, s, th};
+        doReturn(returned).when(repository).findAll();
+        doNothing().when(repository).removeById(idToRemove);
+
+        manager.removeById(idToRemove);
+        AfishaItem[] expected = new AfishaItem[]{th, s, f};
+        AfishaItem[] actual = manager.getAll();
+
+        assertArrayEquals(expected, actual);
+
+        verify(repository).removeById(idToRemove);
+    }
+}
 
 
 
